@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temporadas de Outlander</title>
+</head>
+<body>
+<header>
+    <h1>Outlander</h1>
+    <p>Temporadas registradas: [[${temporadas.size()}]]</p>
+    <p>Capítulos registrados: [[${capitulosTotales}]]</p>
+</header>
+
+<section>
+    <h2>Temporadas de Outlander</h2>
+
+    <div th:each="temporada : ${temporadas}">
+        <h3>Número de temporada: [[${temporada.numero}]]</h3>
+        <p>Año de emisión: [[${temporada.anioEmision}]]</p>
+        <p>Capítulos: [[${temporada.capitulos.size()}]]</p>
+
+        <ul>
+            <li th:each="capitulo : ${temporada.capitulos}">
+                <strong>[[${capitulo.nombre}]]</strong> - [[${capitulo.descripcion}]]
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <button onclick="window.history.back();">Volver</button>
+</footer>
+</body>
+</html>
